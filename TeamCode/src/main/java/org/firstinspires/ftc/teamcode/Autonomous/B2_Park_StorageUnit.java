@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -11,7 +10,7 @@ import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_example;
 //
 @Autonomous(name="B1 ????", group="Blue")
 //@Disabled
-public class B1_Park_Warehouse  extends LinearOpMode {
+public class B2_Park_StorageUnit extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareMap_example robot   = new HardwareMap_example();   // Use a Pushbot's hardware
