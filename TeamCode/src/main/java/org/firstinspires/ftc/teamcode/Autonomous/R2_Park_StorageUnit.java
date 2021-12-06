@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_example;
 
 
-@Autonomous(name="B1 ????", group="Blue")
+@Autonomous(name="R2 park storage unit ", group="Red")
 //@Disabled
 public class R2_Park_StorageUnit extends LinearOpMode {
 
