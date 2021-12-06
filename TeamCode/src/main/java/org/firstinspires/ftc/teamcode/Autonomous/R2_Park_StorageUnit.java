@@ -17,8 +17,8 @@ public class R2_Park_StorageUnit extends LinearOpMode {
     private ElapsedTime     runtime = new ElapsedTime();
 
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
-    static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
-    static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
+    static final double     DRIVE_GEAR_REDUCTION    = 0.0 ;     // This is < 1.0 if geared UP
+    static final double     WHEEL_DIAMETER_INCHES   = 5.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
     static final double     DRIVE_SPEED             = 0.6;
@@ -47,6 +47,12 @@ public class R2_Park_StorageUnit extends LinearOpMode {
 
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//new code added for right back and left back wheels
+            robot.rightBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.leftBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             // Send telemetry message to indicate successful Encoder reset
             telemetry.addData("Path0",  "Starting at %7d :%7d",
@@ -64,6 +70,12 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             telemetry.addData("State","1");
             telemetry.update();
             //What am I doing in this State?
+            /*
+            travelling one step forward
+
+             */
+
+
             // Add Code below here
 
 
@@ -71,6 +83,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
 
             state = 2;
         }
+     //   tunring 90º clockwise
 
         if (state == 2) {
             telemetry.addData("State","2");
@@ -82,7 +95,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
 
             state = 3;
         }
-
+//travel forward one foot
         if (state == 3) {
             telemetry.addData("State", "3");
             telemetry.update();
@@ -93,7 +106,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
 
             state = 4;
         }
-
+//stopping all motors
         if(state == 4){
             telemetry.addData("State", "4");
             telemetry.update();
@@ -128,10 +141,12 @@ public class R2_Park_StorageUnit extends LinearOpMode {
      *  3) Driver stops the opmode running.
      */
     public void encoderDrive(double speed,
-                             double leftInches, double rightInches,
+                             double leftInches, double rightInches, double leftBackInches, double rightBackInches,
                              double timeoutS) {
         int newLeftTarget;
         int newRightTarget;
+        int newLeftBackTarget;
+        int newRightBackTarget;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
@@ -139,17 +154,28 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             // Determine new target position, and pass to motor controller
             newLeftTarget = robot.leftFront.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = robot.rightFront.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+
+            newRightBackTarget = robot.rightBack.getCurrentPosition() + (int)(rightBackInches * COUNTS_PER_INCH);
+newLeftBackTarget= robot.leftBack.getCurrentPosition() + (int)(leftBackInches * COUNTS_PER_INCH);
+
             robot.leftFront.setTargetPosition(newLeftTarget);
             robot.rightFront.setTargetPosition(newRightTarget);
-
+//right back
+            robot.leftBack.setTargetPosition(newLeftBackTarget);
+            robot.rightBack.setTargetPosition(newRightBackTarget);
             // Turn On RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
             runtime.reset();
             robot.leftFront.setPower(Math.abs(speed));
             robot.rightFront.setPower(Math.abs(speed));
+            robot.leftBack.setPower(Math.abs(speed));
+            robot.rightBack.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
@@ -172,10 +198,14 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             // Stop all motion;
             robot.leftFront.setPower(0);
             robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
             // Turn off RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }
