@@ -84,7 +84,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             state = 3;
         }
 
-        if (state == 3) {
+         if (state == 3) {
             telemetry.addData("State", "3");
             telemetry.update();
             //What am I doing in this State?
@@ -95,7 +95,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             state = 4;
         }
 
-        if(state == 4){
+         if(state == 4){
             telemetry.addData("State", "4");
             telemetry.update();
             //What am I doing in this State?
