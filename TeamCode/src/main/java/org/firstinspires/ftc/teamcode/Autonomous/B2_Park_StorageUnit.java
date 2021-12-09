@@ -70,6 +70,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
+            encoderDrive(DRIVE_SPEED, 12, 12, 12, 12, 5);
 
 
 
@@ -84,6 +85,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //turning 90 degrees
             // Add Code below here
+            encoderDrive(DRIVE_SPEED, 6, -6, 6, -6, 5);
 
 
 
@@ -96,6 +98,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
+            encoderDrive(DRIVE_SPEED, 12, 12, 12, 12, 5);
 
 
 
@@ -108,6 +111,10 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //stopping all motors
             // Add Code below here
+            robot.leftFront.setPower(0);
+            robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
 
 
@@ -191,10 +198,14 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             // Stop all motion;
             robot.leftFront.setPower(0);
             robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
             // Turn off RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }
