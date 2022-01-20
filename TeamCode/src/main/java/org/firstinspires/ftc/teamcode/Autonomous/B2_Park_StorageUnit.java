@@ -70,7 +70,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 12, 12, 12, 12, 5);
+            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
 
@@ -83,7 +83,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             telemetry.addData("State","2");
             telemetry.update();
             //What am I doing in this State?
-            //turning 90 degrees
+            //turning 90 degrees right
             // Add Code below here
             encoderDrive(DRIVE_SPEED, 6, -6, 6, -6, 5);
 
@@ -98,7 +98,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 12, 12, 12, 12, 5);
+            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
 
