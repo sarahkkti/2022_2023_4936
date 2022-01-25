@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_Servo;
 
-@TeleOp(name = "intakeServo Test", group = "Test")
+@TeleOp(name = "liftServo Test", group = "Test")
 //@Disabled
 public class TeleOp_Lift extends OpMode {
     // Declare OpMode members.
