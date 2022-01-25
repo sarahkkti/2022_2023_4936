@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_DuckMotor;
 
 // name this opMode and determine a group
-@TeleOp(name="DuckWheelTest", group="Test?")
-public class DuckWheelTest extends OpMode{
+@TeleOp(name="Duck Test", group="Test?")
+public class TeleOp_DuckTest extends OpMode{
 
     /* Declare OpMode members. */
     HardwareMap_DuckMotor robot       = new HardwareMap_DuckMotor();
@@ -82,7 +82,7 @@ public class DuckWheelTest extends OpMode{
             telemetry.addData("Button","None");
             robot.duckMotor.setPower(0);
             robot.duckMotor.setPower(0);
-            
+
         }
 
 
