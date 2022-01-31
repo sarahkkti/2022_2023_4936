@@ -8,19 +8,15 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_example;
 
 //
-@Autonomous(name="B2 park storage unit ", group="Blue")
+@Autonomous(name="R1 park warehouse ", group="Red")
 //@Disabled
-public class B2_Park_StorageUnit extends LinearOpMode {
+public class R1_Park_Warehouse extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareMap_example robot   = new HardwareMap_example();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
-<<<<<<< HEAD
-    static final double     COUNTS_PER_MOTOR_REV    = 1440.0 ;    // eg: TETRIX Motor Encoder
-=======
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
->>>>>>> 9b54e8071d28508bfe4401402e4e443c21a4cac2
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;     // This is < 1.0 if geared UP
     static final double     WHEEL_DIAMETER_INCHES   = 5.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
@@ -74,6 +70,10 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
+            //positive inches: forward
+            //negative inches: backward
+            //is right negative: rotate right
+            //is left negative: rotate left
             encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
@@ -87,7 +87,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             telemetry.addData("State","2");
             telemetry.update();
             //What am I doing in this State?
-            //turning 90 degrees right
+            //turning 90 degrees
             // Add Code below here
             encoderDrive(DRIVE_SPEED, 6, -6, 6, -6, 5);
 
@@ -102,7 +102,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
+            encoderDrive(DRIVE_SPEED, 9, 9, 9, 9, 5);
 
 
 

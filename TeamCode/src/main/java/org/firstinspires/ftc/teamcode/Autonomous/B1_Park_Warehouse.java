@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_example;
 
 //
-@Autonomous(name="B1 ????", group="Blue")
+@Autonomous(name="B1 park warehouse", group="Blue")
 //@Disabled
 public class B1_Park_Warehouse  extends LinearOpMode {
 
@@ -66,7 +66,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
 
@@ -78,7 +78,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+            encoderDrive(DRIVE_SPEED, -6, 6, -6, 6, 5);
 
 
             state = 3;
@@ -89,6 +89,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
+             encoderDrive(DRIVE_SPEED, 9, 9, 9, 9, 5);
 
 
 
@@ -100,7 +101,10 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+             robot.leftFront.setPower(0);
+             robot.rightFront.setPower(0);
+             robot.leftBack.setPower(0);
+             robot.rightBack.setPower(0);
 
 
             state = 5;
@@ -129,10 +133,12 @@ public class B1_Park_Warehouse  extends LinearOpMode {
      *  3) Driver stops the opmode running.
      */
     public void encoderDrive(double speed,
-                             double leftInches, double rightInches,
+                             double leftInches, double rightInches, double leftBackInches, double rightBackInches,
                              double timeoutS) {
         int newLeftTarget;
         int newRightTarget;
+        int newLeftBackTarget;
+        int newRightBackTarget;
 
         // Ensure that the opmode is still active
         if (opModeIsActive()) {
@@ -140,17 +146,25 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             // Determine new target position, and pass to motor controller
             newLeftTarget = robot.leftFront.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = robot.rightFront.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
+            newLeftBackTarget = robot.leftBack.getCurrentPosition() + (int)(leftBackInches * COUNTS_PER_INCH);
+            newRightBackTarget = robot.rightBack.getCurrentPosition() + (int)(rightBackInches * COUNTS_PER_INCH);
             robot.leftFront.setTargetPosition(newLeftTarget);
             robot.rightFront.setTargetPosition(newRightTarget);
+            robot.leftBack.setTargetPosition(newLeftBackTarget);
+            robot.rightBack.setTargetPosition(newRightBackTarget);
 
             // Turn On RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // reset the timeout time and start motion.
             runtime.reset();
             robot.leftFront.setPower(Math.abs(speed));
             robot.rightFront.setPower(Math.abs(speed));
+            robot.leftBack.setPower(Math.abs(speed));
+            robot.rightBack.setPower(Math.abs(speed));
 
             // keep looping while we are still active, and there is time left, and both motors are running.
             // Note: We use (isBusy() && isBusy()) in the loop test, which means that when EITHER motor hits
@@ -173,10 +187,14 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             // Stop all motion;
             robot.leftFront.setPower(0);
             robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
             // Turn off RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.leftBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.rightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             //  sleep(250);   // optional pause after each move
         }

@@ -77,7 +77,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
 
 
             // Add Code below here
-
+            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
 
@@ -90,7 +90,8 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+            //rotate 90 degrees left
+            encoderDrive(DRIVE_SPEED, -6, 6, -6, 6, 5);
 
 
             state = 3;
@@ -101,7 +102,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+            encoderDrive(DRIVE_SPEED, 6, 6, 6, 6, 5);
 
 
             state = 4;
@@ -112,7 +113,10 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-
+            robot.leftFront.setPower(0);
+            robot.rightFront.setPower(0);
+            robot.leftBack.setPower(0);
+            robot.rightBack.setPower(0);
 
 
             state = 5;
@@ -154,23 +158,20 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             // Determine new target position, and pass to motor controller
             newLeftTarget = robot.leftFront.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = robot.rightFront.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
-
+            newLeftBackTarget = robot.leftBack.getCurrentPosition() + (int)(leftBackInches * COUNTS_PER_INCH);
             newRightBackTarget = robot.rightBack.getCurrentPosition() + (int)(rightBackInches * COUNTS_PER_INCH);
-newLeftBackTarget= robot.leftBack.getCurrentPosition() + (int)(leftBackInches * COUNTS_PER_INCH);
-
             robot.leftFront.setTargetPosition(newLeftTarget);
             robot.rightFront.setTargetPosition(newRightTarget);
-//right back
             robot.leftBack.setTargetPosition(newLeftBackTarget);
             robot.rightBack.setTargetPosition(newRightBackTarget);
+
             // Turn On RUN_TO_POSITION
             robot.leftFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.rightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            // reset the timeout time and start motion.
             robot.leftBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.rightBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
+            // reset the timeout time and start motion.
             runtime.reset();
             robot.leftFront.setPower(Math.abs(speed));
             robot.rightFront.setPower(Math.abs(speed));
