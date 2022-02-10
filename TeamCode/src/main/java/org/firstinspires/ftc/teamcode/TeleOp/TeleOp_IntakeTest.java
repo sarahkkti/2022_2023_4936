@@ -28,20 +28,19 @@ public class TeleOp_IntakeTest extends OpMode {
         boolean isButtonB= gamepad1.b;
         boolean isButtonA = gamepad1.a;
 
-        double position = robot.intakeServo.getPosition();
+       // double position = robot.intakeServo.getPosition();
 
         if (isButtonA) {
 
-            position += INCREMENT;
-            robot.intakeServo.setPosition(position);
+           // position += INCREMENT;
+            robot.intakeServo.setPower(1);
 
         } else if (isButtonB) {
 
-            position -= INCREMENT;
-            robot.intakeServo.setPosition(position);
+            robot.intakeServo.setPower(-1);
 
         }
-        telemetry.addData("Box Servo Position",String.format("%.2f", robot.intakeServo.getPosition()));
+        //telemetry.addData("Box Servo Position",String.format("%.2f", robot.intakeServo.getPosition()));
     }
 
 }
