@@ -78,7 +78,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, -6, 6, -6, 6, 5);
+            encoderDrive(DRIVE_SPEED, -7, 7, -7, 7, 5);
 
 
             state = 3;
@@ -89,7 +89,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-             encoderDrive(DRIVE_SPEED, 9, 9, 9, 9, 5);
+             encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 5);
 
 
 

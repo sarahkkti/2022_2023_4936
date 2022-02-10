@@ -89,7 +89,7 @@ public class R1_Park_Warehouse extends LinearOpMode {
             //What am I doing in this State?
             //turning 90 degrees
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 6, -6, 6, -6, 5);
+            encoderDrive(DRIVE_SPEED, 7, -7, 7, -7, 5);
 
 
 
@@ -102,7 +102,7 @@ public class R1_Park_Warehouse extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 9, 9, 9, 9, 5);
+            encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 5);
 
 
 
