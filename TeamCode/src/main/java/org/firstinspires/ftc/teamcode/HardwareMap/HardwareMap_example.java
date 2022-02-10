@@ -33,6 +33,8 @@ public class HardwareMap_example
     public DcMotor  leftBack   = null;
     public DcMotor  rightBack  = null;
 
+    public DcMotor  duckMotor = null;
+
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
@@ -53,6 +55,7 @@ public class HardwareMap_example
         rightFront = hwMap.get(DcMotor.class, "rightFront");
         leftBack  = hwMap.get(DcMotor.class, "leftBack");
         rightBack = hwMap.get(DcMotor.class, "rightBack");
+        duckMotor  = hwMap.get(DcMotor.class, "duckMotor");
 
 
         leftFront.setDirection(DcMotor.Direction.REVERSE);
@@ -72,6 +75,20 @@ public class HardwareMap_example
         rightFront.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         leftBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightBack.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        ////////
+
+
+        duckMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+
+        // Set all motors to zero power
+        duckMotor.setPower(0);
+
+        // Set all motors to run without encoders.
+        // May want to use RUN_USING_ENCODERS if encoders are installed.
+        duckMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
 
     }
 
