@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_DuckMotor;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_Lift;
 import org.firstinspires.ftc.teamcode.HardwareMap.HardwareMap_Servo;
 
-@TeleOp(name = "liftServo Test", group = "Test")
+@TeleOp(name = "lift Test", group = "Test")
 //@Disabled
 public class TeleOp_Lift extends OpMode {
     // Declare OpMode members.
