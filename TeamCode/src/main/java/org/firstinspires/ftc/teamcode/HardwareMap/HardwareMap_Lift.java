@@ -27,7 +27,7 @@ public class HardwareMap_Lift {
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        liftMotor  = hwMap.get(DcMotor.class, "duckMotor");
+        liftMotor  = hwMap.get(DcMotor.class, "liftMotor");
 
         liftMotor.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
 
