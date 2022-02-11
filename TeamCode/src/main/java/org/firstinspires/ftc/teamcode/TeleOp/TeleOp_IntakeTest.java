@@ -40,6 +40,9 @@ public class TeleOp_IntakeTest extends OpMode {
             robot.intakeServo.setPower(-1);
 
         }
+        else {
+            robot.intakeServo.setPower(0);
+        }
         //telemetry.addData("Box Servo Position",String.format("%.2f", robot.intakeServo.getPosition()));
     }
 
