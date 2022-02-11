@@ -91,7 +91,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             // Add Code below here
             //rotate 90 degrees left
-            encoderDrive(DRIVE_SPEED, -7, 7, -7, 7, 5);
+            encoderDrive(DRIVE_SPEED, -8, 8, -8, 8, 5);
 
 
             state = 3;
@@ -102,7 +102,7 @@ public class R2_Park_StorageUnit extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 5);
+            encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 7);
 
 
             state = 4;

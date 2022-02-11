@@ -22,7 +22,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;     // For figuring circumference
     static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
             (WHEEL_DIAMETER_INCHES * 3.1415);
-    static final double     DRIVE_SPEED             = 0.6;
+    static final double     DRIVE_SPEED             = 1.0;
     static final double     TURN_SPEED              = 0.5;
 
     @Override
@@ -78,7 +78,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, -7, 7, -7, 7, 5);
+            encoderDrive(DRIVE_SPEED, -8, 8, -8, 8, 5);
 
 
             state = 3;
@@ -89,7 +89,7 @@ public class B1_Park_Warehouse  extends LinearOpMode {
             telemetry.update();
             //What am I doing in this State?
             // Add Code below here
-             encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 5);
+             encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 7);
 
 
 

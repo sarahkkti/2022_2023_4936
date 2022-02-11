@@ -83,7 +83,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //turning 90 degrees right
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 7, -7, 7, -7, 5);
+            encoderDrive(DRIVE_SPEED, 8, -8, 8, -8, 5);
 
 
 
@@ -96,7 +96,7 @@ public class B2_Park_StorageUnit extends LinearOpMode {
             //What am I doing in this State?
             //move one foot forward
             // Add Code below here
-            encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 5);
+            encoderDrive(DRIVE_SPEED, 15, 15, 15, 15, 7);
 
 
 
